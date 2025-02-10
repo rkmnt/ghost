@@ -50,9 +50,4 @@ ghost -c -u admin@domain.com -e
 - ExchangeOnlineManagement Module
 - MicrosoftTeams Module
 
-## 📜 License
-This project is licensed under the **MIT License**.
-
-## 🤝 Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request.
 
