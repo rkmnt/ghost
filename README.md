@@ -8,6 +8,7 @@
 - 🚫 **Disable** email and chat communication organization-wide
 - ✅ **Enable** email and chat communication when needed
 - 📌 Simple CLI parameters for easy use
+- 🔄 **Automatically installs missing PowerShell modules** (ExchangeOnlineManagement, MicrosoftTeams)
 
 ## 🎯 Usage
 
@@ -45,7 +46,16 @@ ghost -c -u admin@domain.com -e
 ## 🛠 Requirements
 
 - PowerShell 7+
-- ExchangeOnlineManagement Module
-- MicrosoftTeams Module
+- ExchangeOnlineManagement Module *(Auto-installed if missing)*
+- MicrosoftTeams Module *(Auto-installed if missing)*
 
+## 🔄 Automatic Module Installation
+If required PowerShell modules are missing, Ghost will automatically prompt for installation and proceed with installation if confirmed by the user.
+
+### How it Works:
+1. **Ghost checks for required modules** at runtime.
+2. If a module is missing, it asks the user for permission to install it.
+3. If the user agrees, Ghost installs the missing module and proceeds with execution.
+
+This ensures that administrators can run the tool seamlessly without worrying about missing dependencies.
 
