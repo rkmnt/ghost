@@ -3,8 +3,8 @@
 INSTALL_DIR="$HOME/.local/bin"
 SCRIPT_NAME="ghost"
 
-if [[ ! -f "o365-ghost.ps1" ]]; then
-    echo "Error: File 'o365-ghost.ps1' not found!"
+if [[ ! -f "ghost.ps1" ]]; then
+    echo "Error: File 'ghost.ps1' not found!"
     exit 1
 fi
 
@@ -13,7 +13,7 @@ echo "Installing ghost..."
 mkdir -p "$INSTALL_DIR"
 
 
-cp "o365-ghost.ps1" "$INSTALL_DIR/$SCRIPT_NAME"
+cp "ghost.ps1" "$INSTALL_DIR/$SCRIPT_NAME"
 
 
 chmod +x "$INSTALL_DIR/$SCRIPT_NAME"
