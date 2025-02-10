@@ -1,7 +1,5 @@
 # Ghost - Microsoft 365 Management Tool
 
-![Ghost Banner](https://your-image-link.com/banner.png)  
-
 **Ghost** is a PowerShell-based tool for managing **Microsoft 365 services**. It allows administrators to connect to **Exchange Online** and **Microsoft Teams**, as well as to temporarily enable or disable communication across the organization.
 
 ## 🚀 Features
