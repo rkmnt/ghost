@@ -1,5 +1,7 @@
 # Ghost - Microsoft 365 Management Tool
 
+![Supported OS](https://img.shields.io/badge/Supported-macOS-blue?style=for-the-badge&logo=apple)
+
 **Ghost** is a PowerShell-based tool for managing **Microsoft 365 services**. It allows administrators to connect to **Exchange Online** and **Microsoft Teams**, as well as to temporarily enable or disable communication across the organization.
 
 ## 🚀 Features
@@ -9,6 +11,11 @@
 - ✅ **Enable** email and chat communication when needed
 - 📌 Simple CLI parameters for easy use
 - 🔄 **Automatically installs missing PowerShell modules** (ExchangeOnlineManagement, MicrosoftTeams)
+
+## 🖥 Supported Operating Systems
+
+Ghost is supported on:
+- **macOS** ✅
 
 ## 🎯 Usage
 
