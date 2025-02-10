@@ -79,7 +79,7 @@ Write-Separator
 
 if ($Help) {
     Write-Separator
-    Write-Host "📌 USAGE: .\script.ps1 -c -u <admin@domain.com> [-d | -e]" -ForegroundColor Yellow
+    Write-Host "📌 USAGE: ghost -c -u admin@domain.com [-d | -e]" -ForegroundColor Yellow
     Write-Separator
     Write-Host "  -c   -Connect      Connect to Exchange Online and Microsoft Teams." -ForegroundColor Cyan
     Write-Host "  -u   -User         Specify the admin email to connect to Exchange Online and Microsoft Teams." -ForegroundColor Cyan
