@@ -115,7 +115,7 @@ if ($Disable) {
     try {
         New-TransportRule -Name "Block All Emails" `
             -FromScope InOrganization -SentToScope InOrganization `
-            -RejectMessageReasonText "E-mailová komunikace je v současné době zakázána administrátorem." `
+            -RejectMessageReasonText "Email communication is currently disabled by the administrator" `
             -RejectMessageEnhancedStatusCode "5.7.1" -ErrorAction Stop
 
         $policyName = "Global"
