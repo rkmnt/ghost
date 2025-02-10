@@ -30,7 +30,7 @@ function Show-Banner {
     Write-Host "  ██║   ██║██╔══██║██║   ██║╚════██║   ██║   " -ForegroundColor Cyan
     Write-Host "  ╚██████╔╝██║  ██║╚██████╔╝███████║   ██║   " -ForegroundColor Cyan
     Write-Host "   ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝   ╚═╝   " -ForegroundColor Cyan
-    Write-Host "         [ by ht0p_ ] " -ForegroundColor Yellow
+    Write-Host "         [ by rkmnt ] " -ForegroundColor Yellow
     Write-Separator
 }
 
