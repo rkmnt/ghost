@@ -65,7 +65,9 @@ fi
 
 echo "🔄 Installing Ghost..."
 mkdir -p "$INSTALL_DIR"
-cp -r scripts modules config ghost.ps1 README.md "$INSTALL_DIR/"
+cp -r scripts/modules "$INSTALL_DIR/"
+cp scripts/*.ps1 "$INSTALL_DIR/"
+cp README.md "$INSTALL_DIR/"
 
 WRAPPER_SCRIPT="$HOME/.local/bin/$SCRIPT_NAME"
 echo "#!/bin/bash" > "$WRAPPER_SCRIPT"
