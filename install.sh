@@ -32,7 +32,7 @@ if ! command -v pwsh &> /dev/null; then
     fi
 fi
 
-AVAILABLE_SPACE_MB=$(df "$HOME" | awk 'NR==2 {print $4 / 1024}')
+AVAILABLE_SPACE_MB=$(df "$HOME" | awk 'NR==2 {printf "%.0f", $4 / 1024}')
 if (( AVAILABLE_SPACE_MB < MIN_SPACE_MB )); then
     echo "❌ Not enough disk space! Required: ${MIN_SPACE_MB}MB, Available: ${AVAILABLE_SPACE_MB}MB."
     exit 1
@@ -52,6 +52,11 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     fi
 done
 
+if [[ -e "$INSTALL_DIR" && ! -d "$INSTALL_DIR" ]]; then
+    echo "⚠️ Removing existing file $INSTALL_DIR"
+    rm -f "$INSTALL_DIR"
+fi
+
 if [[ -d "$INSTALL_DIR" ]]; then
     read -p "⚠️ Ghost is already installed. Do you want to remove the old version? (Y/N): " remove_old
     if [[ "$remove_old" =~ ^[Yy]$ ]]; then
@@ -65,9 +70,7 @@ fi
 
 echo "🔄 Installing Ghost..."
 mkdir -p "$INSTALL_DIR"
-cp -r scripts/modules "$INSTALL_DIR/"
-cp scripts/*.ps1 "$INSTALL_DIR/"
-cp README.md "$INSTALL_DIR/"
+cp -r scripts modules ghost.ps1 README.md "$INSTALL_DIR/"
 
 WRAPPER_SCRIPT="$HOME/.local/bin/$SCRIPT_NAME"
 echo "#!/bin/bash" > "$WRAPPER_SCRIPT"
