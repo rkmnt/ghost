@@ -1,7 +1,7 @@
 #!/bin/bash
 
-INSTALL_DIR="$HOME/.local/bin/ghost"
-SCRIPT_NAME="ghost"
+INSTALL_DIR="$HOME/.local/share/ghost"
+WRAPPER_SCRIPT="$HOME/.local/bin/ghost"
 MIN_SPACE_MB=100
 
 OS=$(uname -s)
@@ -52,11 +52,6 @@ for TOOL in "${REQUIRED_TOOLS[@]}"; do
     fi
 done
 
-if [[ -e "$INSTALL_DIR" && ! -d "$INSTALL_DIR" ]]; then
-    echo "⚠️ Removing existing file $INSTALL_DIR"
-    rm -f "$INSTALL_DIR"
-fi
-
 if [[ -d "$INSTALL_DIR" ]]; then
     read -p "⚠️ Ghost is already installed. Do you want to remove the old version? (Y/N): " remove_old
     if [[ "$remove_old" =~ ^[Yy]$ ]]; then
@@ -70,9 +65,48 @@ fi
 
 echo "🔄 Installing Ghost..."
 mkdir -p "$INSTALL_DIR"
-cp -r scripts modules ghost.ps1 README.md "$INSTALL_DIR/"
 
-WRAPPER_SCRIPT="$HOME/.local/bin/$SCRIPT_NAME"
+if [[ ! -d "scripts" ]]; then
+    echo "❌ ERROR: Source directory 'scripts' is missing!"
+    exit 1
+fi
+
+cp -r scripts "$INSTALL_DIR/"
+
+if [[ ! -d "scripts/modules" ]]; then
+    echo "❌ ERROR: Source directory 'scripts/modules' is missing!"
+    exit 1
+fi
+
+
+mkdir -p "$INSTALL_DIR/modules"
+cp -r scripts/modules/* "$INSTALL_DIR/modules/"
+
+if [[ ! -f "$INSTALL_DIR/modules/banner.psm1" ]] || [[ ! -f "$INSTALL_DIR/modules/check.psm1" ]]; then
+    echo "❌ ERROR: Some module files are missing in '$INSTALL_DIR/modules/'."
+    exit 1
+fi
+
+echo "✅ Modules installed successfully!"
+
+if [[ -f "scripts/ghost.ps1" ]]; then
+    cp scripts/ghost.ps1 "$INSTALL_DIR/"
+else
+    echo "❌ Missing 'scripts/ghost.ps1' file!"
+    exit 1
+fi
+
+if [[ -f "README.md" ]]; then
+    cp README.md "$INSTALL_DIR/"
+fi
+
+if [[ -d "$WRAPPER_SCRIPT" ]]; then
+    echo "⚠️ Removing existing directory at $WRAPPER_SCRIPT to create script"
+    rm -rf "$WRAPPER_SCRIPT"
+fi
+
+mkdir -p "$HOME/.local/bin"
+
 echo "#!/bin/bash" > "$WRAPPER_SCRIPT"
 echo "pwsh $INSTALL_DIR/ghost.ps1 \"\$@\"" >> "$WRAPPER_SCRIPT"
 chmod +x "$WRAPPER_SCRIPT"
