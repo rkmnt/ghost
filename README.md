@@ -111,6 +111,3 @@ rm ~/.local/bin/ghost
 ---
 ### **📬 Support & Issues**
 If you encounter any problems or want to suggest improvements, feel free to open an **issue** on GitHub!
-
-🚀 **Ghost - Making Microsoft 365 Management Easier!**
-```
