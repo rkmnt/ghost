@@ -12,7 +12,6 @@
 - 📌 **Simple CLI interface** with intuitive parameters
 - 🔄 **Automatically installs missing PowerShell modules** (ExchangeOnlineManagement, MicrosoftTeams)
 - 🔍 **Validates input parameters** before execution
-- 🛠 **Cross-platform PowerShell Core support**
 
 ## 🖥 Supported Operating Systems
 
@@ -80,19 +79,14 @@ This ensures that administrators can run the tool seamlessly without worrying ab
 
 ## 📦 Installation
 
-### 1️⃣ **Install Ghost via Installer Script**
-```sh
-curl -sS https://raw.githubusercontent.com/user/ghost/main/install.sh | bash
-```
-
-### 2️⃣ **Manual Installation**
+### **Manual Installation**
 ```sh
 git clone https://github.com/user/ghost.git
 cd ghost
 ./install.sh
 ```
 
-### 3️⃣ **Run Ghost**
+### **Run Ghost**
 ```sh
 ghost -h
 ```
