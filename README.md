@@ -81,7 +81,7 @@ This ensures that administrators can run the tool seamlessly without worrying ab
 
 ### **Manual Installation**
 ```sh
-git clone https://github.com/user/ghost.git
+git clone https://github.com/rkmnt/ghost.git
 cd ghost
 ./install.sh
 ```
