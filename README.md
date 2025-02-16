@@ -1,4 +1,3 @@
-```markdown
 # Ghost - Microsoft 365 Management Tool
 
 ![Supported OS](https://img.shields.io/badge/Supported-macOS-blue?style=for-the-badge&logo=apple)
